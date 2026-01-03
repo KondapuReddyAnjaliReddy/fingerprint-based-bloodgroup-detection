@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+</head>
+<body>
+  <h2> Details</h2>
+  <div id="patientDetails"></div>
+  <p><strong>Name:</strong> {{ name }}</p>
+  <p><strong>Age:</strong> {{ age }}</p>
+  <p><strong>Gender:</strong> {{ gender }}</p>
+  </div>
+  <h3>Upload Image</h3>
+  <input type="file" id="imageInput" accept="image/*"><br><br>
+  <img id="preview" src="" alt="Image Preview" width="200" style="display:none;"><br>
+
+  <button onclick="predict()">Blood Group type</button>
+
+  <h3 id="prediction" style="display:none;">Predicted Blood Group: <span id="bloodGroup"></span></h3>
+
+  
+
+</body>
+</html>

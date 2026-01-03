@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Group Prediction</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+
+  <div class="container">
+    
+    <h2>Upload Fingerprint Image</h2>
+    <div id="patientDetails">
+      <p><strong>Name:</strong> {{ name }}</p>
+      <p><strong>Age:</strong> {{ age }}</p>
+      <p><strong>Gender:</strong> {{ gender }}</p>
+      </div>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+      <input type="file" name="image" accept="image/*" required><br><br>
+      <button type="submit">Predict Blood Group</button><br><br>
+    </form>
+
+    <div class="result">
+  {% if result %}
+    <p>Predicted Blood Group: {{ result }}</p>
+    <a href="{% url 'details' %}" class="btn">Enter Another Patient</a>
+  {% endif %}
+</div>
+
+
+  </div>
+
+</body>
+</html>
